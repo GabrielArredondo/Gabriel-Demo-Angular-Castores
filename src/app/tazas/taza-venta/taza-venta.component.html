@@ -1,0 +1,80 @@
+
+
+
+<mat-sidenav-container>
+  
+        
+    <mat-sidenav-content>
+      
+        <div class="content mat-elevation-z8" >
+         
+            <div class="content">
+              <mat-tab-group dynamicHeight>
+                <mat-tab label="Calidad Alta">
+                  <div class="example-large-box mat-elevation-z4">
+                    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                      <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of alta">
+                        <mat-card class="mat-elevation-z4">
+                          <mat-card-header>
+                            <mat-card-title>Mountains {{num.color}}</mat-card-title>
+                          </mat-card-header>
+                          <img mat-card-image src="https://camisetear.com/wp-content/uploads/2015/11/taza-goku.png">
+                          <mat-card-content>
+                            <h1>Descripcion:</h1>
+                              <p>
+                                  Color:{{num.color}},
+                                  Material:{{num.material}},
+                                  Modelo:{{num.modelo}},
+                                  Capacidad:{{num.capacidad}}
+                            </p>
+                          </mat-card-content>
+                          <mat-card-actions [formGroup]="firstFormGroup" #f="ngForm">
+                            <button mat-button>Precio:{{num.precio}}</button>
+                            <label style="font-family: Roboto, Helvetica Neue, sans-serif;
+                            font-size: 14px;
+                            font-weight: 500;">Cantidad:</label><input type="number" formControlName="cantidad" style="margin: 2px; width: 3rem;"  name="cc_year"    required="" />
+                            <button mat-button class="agregar"  [disabled]="firstFormGroup.invalid" (click)="carrito(num, f)">Comprar</button>
+                          </mat-card-actions>
+                        </mat-card>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Calidad Baja">
+                  <div class="example-large-box mat-elevation-z4">
+                    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                      <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of baja">
+                        <mat-card class="mat-elevation-z4">
+                          <mat-card-header>
+                            <mat-card-title>Taza {{num.color}}</mat-card-title>
+                          </mat-card-header>
+                          <img mat-card-image src="https://camisetear.com/wp-content/uploads/2015/11/taza-goku.png">
+                          <mat-card-content>
+                            <h1>Descripcion:</h1>
+                              <p>
+                                  Color:{{num.color}},
+                                  Material:{{num.material}},
+                                  Modelo:{{num.modelo}},
+                                  Capacidad:{{num.capacidad}}
+                            </p>
+                          </mat-card-content>
+                          <mat-card-actions [formGroup]="secondFormGroup" #f="ngForm">
+                            <button mat-button>Precio:{{num.precio}}</button>
+                            <label style="font-family: Roboto, Helvetica Neue, sans-serif;
+                            font-size: 14px;
+                            font-weight: 500;">Cantidad:</label><input type="number" formControlName="cantidad" style="margin: 2px; width: 3rem;"  name="cc_year"    required="" />
+                            <button mat-button class="agregar" [disabled]="secondFormGroup.invalid" (click)="carrito(num, f)">Comprar</button>
+                          </mat-card-actions>
+                        </mat-card>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+               
+              </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
